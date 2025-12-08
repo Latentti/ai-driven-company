@@ -1,4 +1,4 @@
-@book AI-Driven-Company v1.0
+@book AI-Driven-Company v1.1
 @author Ari Hietamäki
 @source speech-transcript + markdown
 @generator bmad-agents + claude-code
@@ -10,10 +10,11 @@
   pages: ~100
   chapters: 9
   diagrams: 59
-  frameworks: 15
-  tables: 40+
+  frameworks: 18
+  tables: 45+
   generation-time: 4 days
   speech-input: ~8 hours
+  version-notes: Updated SRL with enhanced frameworks and complete chapter coverage
 
 # ============================================================
 # CHAPTER 1: ALUSTUS
@@ -27,22 +28,37 @@
   @section "1.1 Historiallinen käännekohta"
     @narrator: Olemme historiallisessa käännekohdassa. Ei yhdessä, vaan useammassa ulottuvuudessa samanaikaisesti.
     @narrator: Tekoälyn kehitys ei noudata lineaarista käyrää. Se on eksponentiaalinen.
+    @quote: Muutos ei tule — se on jo täällä.
 
   @section "1.2 Todellisuus organisaatioissa"
     @framework mckinsey-reality
       ai-adoption: 88% käyttää AI:ta vähintään yhdessä funktiossa
       scaling: vain 1/3 edennyt kokeiluista skaalautuvaan käyttöönottoon
       board-understanding: 66% hallituksista "rajallinen tai olematon" AI-ymmärrys
+      failure-rate: 70% transformaatioista epäonnistuu
     @quote: Tämä ei ole teknologiaongelma. Tämä on johtamisongelma.
+
+  @section "1.3 Epäonnistumisen syyt"
+    @framework transformation-failure-causes
+      johdon-sitoutuminen: Puutteellinen — ei omistajuutta ylhäältä
+      osaaminen: Riittämätön — ei ymmärretä mitä AI voi tehdä
+      muutosjohtaminen: Heikko — ihmiset unohdetaan
+      strategia: Epäselvä — ei selkeää suuntaa
+    @quote: Teknologia ei ole ongelma. Johtaminen on.
 
   @section "1.4 Strateginen imperatiivi"
     @framework mit-research
       digital-board: +10.9% ROI vs kilpailijat
       no-digital: -3.8% toimialan keskiarvon alapuolella
+      gap: 14.7 prosenttiyksikön ero
     @quote: Tämä ei ole enää kilpailuetu. Tämä on olemassaolon ehto.
 
   @section "1.5 Murroksen mittakaava"
     @narrator: AI-huippusuoriutujat ovat kolme kertaa todennäköisemmin uudelleensuunnitelleet työnkulkunsa.
+    @framework ai-performance-gap
+      top-performers: 3x todennäköisemmin redesignaneet prosessit
+      decision-speed: 100x ero päätöksentekonopeudessa
+      cost-structure: Radikaalisti erilainen
     @quote: Panoksena on satakertainen päätöksentekokyky kilpailijaan nähden.
 
   @section "1.6 Tri-Stream esittely"
@@ -51,15 +67,16 @@
       Technology,Alhaalta ylös,Teknologisen perustan ja automaation rakentaminen
       People,Läpileikkaava,Osaamisen kehittäminen ja muutoskyvyn rakentaminen
     @quote: Ilman hallituksen mandaattia AI-transformaatio ei etene.
+    @narrator: Stream 1 on nopein arvonluoja. Stream 2 on pitkäjänteinen investointi. Stream 3 on liima.
 
   @section "1.7 Kenelle tämä kirja"
     @framework target-audience{boards,executives,transformation-leaders}
-    @list reading-paths:
-      - Hallituksen jäsen (50 min): Luvut 1 → 2 → 6 → 8 → 9
-      - Toimitusjohtaja (70 min): Luvut 1 → 2 → 3 → 7 → 8 → 9
-      - Johtoryhmän jäsen (70 min): Luvut 1 → 2 → 3 → 5 → 7 → 9
-      - Transformaation vetäjä: Kaikki luvut järjestyksessä
-      - Henkilökohtainen aloitus (30 min): Luvut 9 → 1 → 2
+    @table reading-paths[5]{rooli,aika,luvut}:
+      Hallituksen jäsen,50 min,1 → 2 → 6 → 8 → 9
+      Toimitusjohtaja,70 min,1 → 2 → 3 → 7 → 8 → 9
+      Johtoryhmän jäsen,70 min,1 → 2 → 3 → 5 → 7 → 9
+      Transformaation vetäjä,Kaikki,1 → 2 → 3 → 4 → 5 → 6 → 7 → 8 → 9
+      Henkilökohtainen aloitus,30 min,9 → 1 → 2
 
 # ============================================================
 # CHAPTER 2: TRI-STREAM MALLI
@@ -72,6 +89,10 @@
 
   @section "2.1 Perinteisen lähestymistavan ongelma"
     @narrator: Suurin osa organisaatioista lähestyy AI-transformaatiota: teknologia ensin, hyödyt myöhemmin.
+    @framework traditional-approach-failure
+      pattern: IT ostaa työkalut → Johto ihmettelee → Henkilöstö ei käytä
+      result: Kallis proof-of-concept joka ei skaalaudu
+      root-cause: Ei ylhäältä alas -sitoutumista
     @quote: 70 prosenttia transformaatioista epäonnistuu. Syy ei ole teknologiassa.
 
   @section "2.2 Tri-Stream: Kolmen rinnakkaisen polun voima"
@@ -81,16 +102,19 @@
         direction: top-down
         time-to-value: months
         focus: johdon-paatoksenteko
+        key-principle: Hallitus oppii ensin
       technology:
         name: "Stream 2: Technology"
         direction: bottom-up
         time-to-value: years
         focus: teknologinen-perusta
+        key-principle: Kerros kerrokselta
       people:
         name: "Stream 3: People"
         direction: cross-cutting
         time-to-value: continuous
         focus: osaaminen-ja-kulttuuri
+        key-principle: Ihmiset mukaan alusta
     @quote: Stream 1 tuottaa arvoa kuukausissa, ei vuosissa.
 
   @section "2.3 Governance-ensisijaisuus"
@@ -100,25 +124,19 @@
       Riskien omistajuus,Määrittää autonomian rajat ja eskalaatiosäännöt
       Gate-päätökset,Arvioi etenemisen tarkistuspisteissä
     @quote: Hallitus omistaa transformaation. IT toteuttaa.
+    @narrator: Hallituksen rooli ei ole hyväksyä IT-projektia. Se on omistaa liiketoiminnan muutos.
 
   @section "2.4 Stream 1: Leadership Track"
-    @framework leadership-levels[5]{taso,nimi,kuvaus}:
-      L1,Hallitus,Strateginen ohjaus
-      L2,Toimitusjohtaja,Kokonaiskoordinaatio
-      L3,Johtoryhmä,Funktio-ohjaus
-      L4,Keskijohto,Operatiivinen johtaminen
-      L5,Operatiivinen,Työn suorittaminen
+    @framework leadership-levels[5]{taso,nimi,kuvaus,datavaatimus}:
+      L1,Hallitus,Strateginen ohjaus,Aggregoidut KPI:t (kk/Q)
+      L2,Toimitusjohtaja,Kokonaiskoordinaatio,Funktioyhteenvedot (vko/pv)
+      L3,Johtoryhmä,Funktio-ohjaus,Prosessidata (päivä)
+      L4,Keskijohto,Operatiivinen johtaminen,Tiimidata (reaaliaikainen)
+      L5,Operatiivinen,Työn suorittaminen,Transaktiodata (virrat)
 
     @framework leadership-phases[2]{vaihe,ai-rooli,ihmisen-rooli}:
       Agent-Assisted,Analysoi ehdottaa valmistelee,Päättää ohjaa arvioi
       AI-Native,Johtaa analyysiä generoi suosituksia,Valvoo hyväksyy korjaa
-
-    @table data-requirements[5]{taso,datavaatimus,frekvenssi}:
-      L1 Hallitus,Aggregoidut KPI:t trendit,Kuukausi/Kvartaali
-      L2 TJ,Funktioyhteenvedot,Viikko/Päivä
-      L3 Johtoryhmä,Prosessidata,Päivä
-      L4 Keskijohto,Tiimidata,Reaaliaikainen
-      L5 Operatiivinen,Transaktiodata,Reaaliaikavirrat
 
   @section "2.5 Stream 2: Technology Track"
     @framework technology-layers[5]{kerros,nimi,focus}:
@@ -133,19 +151,21 @@
       Automated,Automaatio ja prosessit optimoitu,Valvonta ja poikkeukset
       Autonomous,Itseohjautuva ja itsekorjautuva,Strateginen ohjaus
 
+    @quote: Jokainen kerros rakentuu edellisen päälle. Oikopolkuja ei ole.
+
   @section "2.6 Stream 3: People & Capability"
     @quote: Teknologia ilman osaavia ihmisiä ei tuota arvoa.
     @framework people-phases[3]{vaihe,focus}:
-      Tietoisuus,Viestintä AI Literacy
-      Kyvykkyys,Koulutus Champions
-      Kulttuuri,AI-natiivi Jatkuva oppiminen
+      Tietoisuus,Viestintä AI Literacy pelkojen käsittely
+      Kyvykkyys,Koulutus Champions käytännön harjoittelu
+      Kulttuuri,AI-natiivi Jatkuva oppiminen sisäinen innovaatio
 
     @framework capability-levels[5]{taso,nimi,tunnusmerkit}:
       Level 1,Tietämätön,Pelot epävarmuus hype
       Level 2,Tietoinen,Kiinnostus ensimmäiset kokeilut
       Level 3,Käyttäjä,Perustaidot hyötyjä tunnistetaan
-      Level 4,Tehokäyttäjä,Jatkuva kehittäminen
-      Level 5,AI-Natiivi,AI-ensin -ajattelu
+      Level 4,Tehokäyttäjä,Jatkuva kehittäminen AI-optimoidut prosessit
+      Level 5,AI-Natiivi,AI-ensin -ajattelu jatkuva oppiminen
 
   @section "2.8 Arvonluonti"
     @table value-creation[4]{mittari,tavoite}:
@@ -178,6 +198,12 @@
       Arvon nopea demonstrointi,Stream 1 tuottaa arvoa kuukausissa
       Riskien hallinta,Johto ymmärtää AI:n rajoitukset kokemuksesta
 
+    @framework cascade-model
+      L1-first: Hallitus aloittaa — signaali koko organisaatiolle
+      L2-follows: TJ ottaa käyttöön — operatiivinen sitoutuminen
+      L3-expands: Johtoryhmä laajentaa — funktiokohtainen soveltaminen
+      L4-L5-scales: Koko organisaatio — transformaatio toteutuu
+
   @section "3.2 Agent-Assisted ja AI-Native"
     @framework aa-vs-native[6]{ulottuvuus,agent-assisted,ai-native}:
       Aloite,Ihminen pyytää,AI havaitsee ja ehdottaa
@@ -192,6 +218,8 @@
       - Luottamusta: Käyttäjien tyytyväisyys korkealla tasolla
       - Teknistä valmiutta: Stream 2 tarjoaa riittävät integraatiot
       - Hallinnollista valmiutta: Seuraava taso jo Agent-Assisted
+
+    @quote: Agent-Assisted on harjoittelua. AI-Native on uusi normaali.
 
   @section "3.3 L1: Hallitus"
     @narrator: Hallitus on transformaation ankkuri.
@@ -209,10 +237,10 @@
 
   @section "3.4-3.7 L2-L5 Tasot"
     @framework leadership-usecases-by-level
-      L2-TJ: Dashboard-analyysit, poikkeamahälytykset, skenaariovertailut
-      L3-JR: CFO kassavirta, COO tehokkuus, CMO markkinointi, CTO kapasiteetti, CHRO henkilöstö
-      L4-Keskijohto: Tiimikohtainen seuranta, työjonon optimointi, laatupoikkeamat
-      L5-Operatiivinen: Työn tehostaminen, tiedonhaku, dokumentaatio
+      L2-TJ: Dashboard-analyysit poikkeamahälytykset skenaariovertailut resurssioptimointi
+      L3-JR: CFO kassavirta-ennusteet | COO tehokkuusanalyysi | CMO kampanjaoptimointi | CTO kapasiteetti | CHRO henkilöstöanalytiikka
+      L4-Keskijohto: Tiimikohtainen seuranta työjonon optimointi laatupoikkeamat aikataulutus
+      L5-Operatiivinen: Työn tehostaminen tiedonhaku dokumentaatio asiakaspalvelu
 
   @section "3.8 Kypsyysarviointi"
     @framework s1-maturity-scoring[5]{taso,ei-käytössä,agent-assisted,ai-native}:
@@ -262,41 +290,94 @@
       foundation:
         tietovarasto: Keskitetty warehouse operatiivinen
         etl: Päivittäinen batch-ETL
-        laadunvalvonta: Manuaalinen tarkistus
+        laadunvalvonta: Manuaalinen tarkistus perussäännöt
+        katalogi: Aloitettu dokumentointi 50% kattavuus
         tech: Snowflake BigQuery Redshift dbt Airflow
       automated:
         streaming: Reaaliaikainen < 1 min latenssi
         quality: Automaattinen kaikille kriittisille
-        katalogi: 100% kattava
-        tech: Kafka Kinesis Great Expectations Monte Carlo
+        katalogi: 100% kattava automaattinen ylläpito
+        lineage: End-to-end data lineage
+        tech: Kafka Kinesis Great Expectations Monte Carlo Atlan
       autonomous:
-        self-healing: Automaattinen virheenkorjaus
-        predictive-quality: Drift-ennustus
-        optimization: Query-optimointi resurssien skaalaus
+        self-healing: Automaattinen virheenkorjaus ja reitittäminen
+        predictive-quality: Drift-ennustus proaktiivinen puuttuminen
+        optimization: Query-optimointi resurssien skaalaus kustannushallinta
+        governance: Automaattinen compliance ja access control
 
   @section "4.4 T2: Operational Layer"
     @framework t2-phases
-      foundation: CI/CD perus, monitorointi, IaC 50%+
-      automated: Full CI/CD, observability, RPA, deployment daily
-      autonomous: AIOps, self-healing, incident auto-resolution >80%
+      foundation:
+        cicd: Perus CI/CD ydinprosesseille
+        monitoring: Perusmonitorointi lokituskyvykkyys
+        iac: 50%+ Infrastructure as Code
+        deployment: Viikottain tai harvemmin
+      automated:
+        cicd: Full CI/CD kaikille palveluille
+        observability: Täysi observability (metrics traces logs)
+        rpa: RPA rutiinitehtäviin 5+ prosessia
+        deployment: Päivittäin tai useammin
+        tech: GitLab Kubernetes Prometheus Grafana UIPath
+      autonomous:
+        aiops: AIOps platform käytössä
+        self-healing: Automaattinen incident response ja korjaus
+        optimization: Jatkuva kapasiteetti- ja kustannusoptimointi
+        resolution: >80% incidenteistä automaattisesti ratkaistuja
 
   @section "4.5 T3: Tactical Layer"
     @framework t3-phases
-      foundation: BPMN prosessidokumentaatio, kyvykkyyskartta, business rules
-      automated: BPM-automaatio Camunda, Rules Engine Drools, Process Mining Celonis
-      autonomous: Adaptiiviset prosessit, ML-päätöksenteko, 85% autonomisia
+      foundation:
+        process: BPMN prosessidokumentaatio ydinprosesseille
+        capability: Kyvykkyyskartta määritelty
+        rules: Business rules dokumentoitu
+        automation: Ensimmäiset automatisoinnit käynnissä
+      automated:
+        bpm: Camunda tai vastaava BPM-automaatio
+        rules: Rules Engine (Drools) käytössä
+        mining: Process Mining (Celonis) pullonkaulojen tunnistus
+        coverage: 50%+ prosesseista automatisoitu
+      autonomous:
+        adaptive: Adaptiiviset prosessit reaaliaikainen säätö
+        ml-decisions: ML-pohjainen päätöksenteko prosesseissa
+        optimization: Jatkuva itseorganisoituva optimointi
+        automation: 85%+ päätöksistä autonomisia
 
   @section "4.6 T4: Strategic Layer"
     @framework t4-phases
-      foundation: KPI-framework, OKR-järjestelmä, kuukausiraportointi
-      automated: Reaaliaikaiset KPI:t, ML-ennusteet, skenaariosimulointit
-      autonomous: Strategic AI, proactive insights, continuous strategy
+      foundation:
+        kpi: KPI-framework määritelty mittarit johdettu strategiasta
+        okr: OKR-järjestelmä käytössä
+        reporting: Kuukausiraportointi vakiintunut
+        dashboards: Perus dashboardit johdolle
+      automated:
+        realtime-kpi: Reaaliaikaiset KPI:t automaattinen seuranta
+        forecasting: ML-ennusteet 3-12 kk aikajänteellä
+        simulation: Skenaariosimulointit what-if -analyysi
+        alerts: Automaattiset hälytykset poikkeamista
+      autonomous:
+        strategic-ai: Strategic AI proaktiivinen insight-generointi
+        continuous: Jatkuva strategian evaluointi ja suosittelu
+        predictive: Ennakoiva markkinatilanteiden tunnistus
+        integration: Automaattinen strategia-operaatio -linkitys
 
   @section "4.7 T5: AI Governance Engine"
     @framework t5-phases
-      foundation: ML-alusta (MLflow SageMaker), perus governance, explainability
-      automated: MLOps pipeline, feature store, model monitoring, bias monitoring
-      autonomous: Multi-agent system, AutoML, autonomous governance
+      foundation:
+        ml-platform: ML-alusta (MLflow SageMaker Vertex)
+        governance: Perus governance malleille
+        explainability: Explainability yksinkertaisille malleille
+        documentation: Malli-dokumentaatio ja versiointi
+      automated:
+        mlops: MLOps pipeline (training deployment monitoring)
+        feature-store: Feature Store käytössä
+        model-monitoring: Automaattinen model drift detection
+        bias: Bias monitoring ja fairness metrics
+        tech: Kubeflow MLflow Feature Store Evidently AI
+      autonomous:
+        multi-agent: Multi-agent system orkestrointi
+        automl: AutoML feature engineering model selection
+        self-governance: Autonominen mallien governance ja päivitys
+        federation: Federated learning ja privacy-preserving ML
 
   @section "4.8 Kypsyysarviointi"
     @framework s2-maturity-scoring[5]{kerros,foundation,automated,autonomous}:
@@ -307,6 +388,13 @@
       T5,1,2,3
     @narrator: Maksimipistemäärä 15 (kaikki kerrokset Autonomous)
 
+    @framework s2-maturity-levels[5]{taso,pisteet,kuvaus}:
+      Level 1 Alkava,5-7,Perusinfra kunnossa (T1-T2 Foundation)
+      Level 2 Kehittyvä,8-9,Automaatio etenee (T1-T2 Automated)
+      Level 3 Edistynyt,10-11,Laaja automaatio (T1-T3 Automated T4 Foundation)
+      Level 4 Kypsä,12-13,Autonomia alkaa (T1-T2 Autonomous T3-T5 Automated)
+      Level 5 Autonominen,14-15,Täysi autonomia (Kaikki Autonomous)
+
   @section "4.10 Investoinnit"
     @table s2-investments[5]{kerros,foundation,automated,autonomous}:
       T1 Data Foundation,€100-300k,€200-500k,€300-800k
@@ -314,6 +402,7 @@
       T3 Tactical Layer,€50-150k,€150-400k,€200-500k
       T4 Strategic Layer,€50-100k,€100-300k,€200-500k
       T5 AI Governance Engine,€100-200k,€200-500k,€400-1M
+    @narrator: Yhteensä €350k-900k (Foundation) → €800k-2.1M (Automated) → €1.4M-3.4M (Autonomous)
 
 # ============================================================
 # CHAPTER 5: STREAM 3 - PEOPLE
@@ -330,15 +419,15 @@
       Ei ymmärretä muutosta,Pelko vastarinta sabotaasi,Viestintä ja tietoisuus
       Ei osata käyttää,Investoinnit eivät tuota,Koulutus ja tuki
       Ei haluta muuttaa,Vanha tapa jatkuu,Positiivinen muutoskokemus
-      Ei ole aikaa oppia,Liian kiire,Resursointi oppimiseen
+      Ei ole aikaa oppia,Liian kiire normaali työ,Resursointi oppimiseen
 
   @section "5.2 Osaamisen Kypsyystasot"
     @framework capability-maturity[5]{taso,nimi,tunnusmerkit}:
-      Level 1,Tietämätön,AI uhkana tai hypeenä pelot epävarmuus
-      Level 2,Tietoinen,Perusymmärrys kiinnostus uteliaisuus
-      Level 3,Käyttäjä,AI-työkalut käytössä perustaidot
-      Level 4,Tehokäyttäjä,Prosessit AI-yhteensopivat jatkuva kehittäminen
-      Level 5,AI-Natiivi,AI-ensin -ajattelu jatkuva oppiminen
+      Level 1,Tietämätön,AI uhkana tai hypeenä pelot epävarmuus väärinkäsitykset
+      Level 2,Tietoinen,Perusymmärrys kiinnostus uteliaisuus ensimmäiset kysymykset
+      Level 3,Käyttäjä,AI-työkalut käytössä perustaidot hyötyjä tunnistetaan
+      Level 4,Tehokäyttäjä,Prosessit AI-yhteensopivat jatkuva kehittäminen tehokkuus
+      Level 5,AI-Natiivi,AI-ensin -ajattelu jatkuva oppiminen innovointi
 
     @table target-levels-per-gate[4]{ryhmä,gate1,gate2,gate3,gate4}:
       Hallitus,Level 2,Level 3,Level 4,Level 5
@@ -349,49 +438,65 @@
   @section "5.3 Kolme Vaihetta"
     @framework s3-phases
       phase-1-tietoisuus:
-        toimenpiteet: Viestintä AI-Literacy pelkojen käsittely
-        mittarit: 100% saanut viestinnän, ymmärrys >3.5/5
+        ajankohta: Gate 0 → Gate 1
+        toimenpiteet: Viestintäkampanja AI-Literacy -koulutus pelkojen käsittely
+        mittarit: 100% saanut viestinnän ymmärrys >3.5/5
+        investointi: €20-40k
       phase-2-kyvykkyys:
-        toimenpiteet: Tasokohtaiset koulutukset, Champions-verkosto, käytännön harjoittelu
-        mittarit: Käyttöaste >70%, Champions kattaa yksiköt
+        ajankohta: Gate 1 → Gate 2
+        toimenpiteet: Tasokohtaiset koulutukset Champions-verkosto käytännön harjoittelu
+        mittarit: Käyttöaste >70% Champions kattaa yksiköt tyytyväisyys >3.5/5
+        investointi: €60-120k
       phase-3-kulttuuri:
-        toimenpiteet: AI-natiivi työskentely, jatkuva oppiminen, sisäinen koulutuskyky
-        mittarit: Tyytyväisyys >4/5, sisäiset AI-innovaatiot
+        ajankohta: Gate 2 → Gate 4
+        toimenpiteet: AI-natiivi työskentely jatkuva oppiminen sisäinen koulutuskyky
+        mittarit: Tyytyväisyys >4/5 sisäiset AI-innovaatiot osaaminen Level 4-5
+        investointi: €40-80k/vuosi
 
   @section "5.4 AI Champions -verkosto"
     @framework champions-model
       ratio: 1 Champion per 15-20 henkilöä
-      selection: Innokkaat early adopterit
-      training: Edistynyt AI-osaaminen + fasilitointi
-      time: 10-20% työajasta
-      tasks: Lähituki, käyttötapaukset, palaute, onnistumiset
+      selection: Innokkaat early adopterit kaikista funktioista
+      training: Edistynyt AI-osaaminen + fasilitointitaidot
+      time: 10-20% työajasta Champion-rooliin
+      tasks: Lähituki käyttötapauksien tunnistus palautteen kerääminen onnistumisten jakaminen
 
     @table champions-rollout[4]{vaihe,ajankohta,tavoite}:
       Pilotti,Stream 3 Vaihe 1,5-10 Champions eri yksiköistä
       Laajentaminen,Gate 1 jälkeen,Kattavuus 50% yksiköistä
-      Täysi kattavuus,Gate 2 mennessä,Kaikki yksiköt katettu
-      Vakiintuminen,Gate 3 jälkeen,Pysyvä osa organisaatiota
+      Täysi kattavuus,Gate 2 mennessä,Kaikki yksiköt katettu (1:15-20)
+      Vakiintuminen,Gate 3 jälkeen,Pysyvä osa organisaatiota sisäinen kehitys
+
+    @quote: Champions ovat silta johdon vision ja päivittäisen työn välillä.
 
   @section "5.5 Muutosjohtamisen Periaatteet"
     @framework change-principles
-      läpinäkyvyys: Kerrotaan mitä miksi miten vaikuttaa
-      osallistaminen: Ihmiset mukaan palautetta kuunnellaan
-      tuki: Koulutus Champions aikaa oppimiseen
-      positiivisuus: Mahdollisuudet työ paremmaksi urapolut
+      läpinäkyvyys: Kerrotaan avoimesti mitä miksi miten vaikuttaa työhön
+      osallistaminen: Ihmiset mukaan suunnitteluun palautetta kuunnellaan
+      tuki: Riittävä koulutus Champions-verkosto aikaa oppimiseen
+      positiivisuus: Mahdollisuudet korostetaan työ paremmaksi urapolut selvillä
 
     @table resistance-handling[4]{syy,ilmeneminen,vastaus}:
-      Pelko työpaikan menettämisestä,Passiivisuus negatiivinen puhe,Selkeä viestintä rooli kehittyy
-      Osaamattomuuden pelko,Vetäytyminen,Riittävä koulutus ja tuki
-      Epäselvä hyöty,Miksi tämä,Konkreettiset esimerkit
-      Aiemmat epäonnistuneet muutokset,Kyynisyys,Uskottavuus tekojen kautta
+      Pelko työpaikan menettämisestä,Passiivisuus negatiivinen puhe,Selkeä viestintä: rooli kehittyy ei häviä
+      Osaamattomuuden pelko,Vetäytyminen välttelyä,Riittävä koulutus ja tuki Champions
+      Epäselvä hyöty,Miksi pitää muuttua,Konkreettiset esimerkit omasta työstä
+      Aiemmat epäonnistuneet muutokset,Kyynisyys taas uusi juttu,Uskottavuus tekojen kautta nopeat voitot
+
+  @section "5.6 Mittaaminen"
+    @framework s3-metrics
+      osaamistaso: Kyselytutkimus 1-5 per capability level
+      käyttöaste: Työkalujen aktiivinen käyttö lokidata
+      tyytyväisyys: eNPS AI-muutokselle
+      champions-kattavuus: Yksiköt joilla on Champion
+      koulutusaste: % henkilöstöstä koulutettu
 
   @section "5.8 Investoinnit"
     @quote: 15-20% AI-investoinneista kohdistetaan osaamiseen
     @table s3-investments[5]{kohde,investointi}:
       Viestintä ja tietoisuuskampanja,€20-40k
       AI-koulutusalustan käyttöönotto,€30-60k
-      Champions-verkoston perustaminen,€30-60k
-      Mittausjärjestelmät,€20-40k
+      Champions-verkoston perustaminen ja koulutus,€30-60k
+      Mittausjärjestelmät ja seuranta,€20-40k
       Yhteensä vuosi 1,€100-200k
 
 # ============================================================
@@ -405,9 +510,10 @@
 
   @section "6.1 Gate-Prosessin Tarkoitus"
     @framework gate-purpose
-      synkronointi: Streamit etenevät koordinoidusti
-      laadunvarmistus: Kriteerit täyttyvät ennen etenemistä
-      päätöksenteko: Hallituksen ohjausmalli
+      synkronointi: Streamit etenevät koordinoidusti ei siiloudu
+      laadunvarmistus: Kriteerit täyttyvät ennen etenemistä ei oikopolkuja
+      päätöksenteko: Hallituksen ohjausmalli selkeä governance
+      oppiminen: Systematisoitu oppiminen virheistä ja onnistumisista
     @quote: Gates ei ole byrokratiaa. Se on investoinnin turvaamista.
 
   @section "6.2 Gate-Yleiskatsaus"
@@ -416,65 +522,133 @@
         name: "Mandaatti"
         purpose: Transformaation käynnistys
         timing: Kuukausi 0
+        key-question: Olemmeko valmiita sitoutumaan?
       gate-1:
         name: "Foundation"
         purpose: Perusta kunnossa ennen skaalausta
         timing: 6-12 kk
+        key-question: Toimiiko perusinfra ja johdon AI?
       gate-2:
         name: "Automation"
         purpose: Automaatiotaso riittävä AI-Native -siirtymälle
         timing: 12-24 kk
+        key-question: Onko automaatio riittävä?
       gate-3:
         name: "Autonomy"
         purpose: Autonominen toiminta turvallista
         timing: 24-36 kk
+        key-question: Voiko AI toimia itsenäisesti?
       gate-4:
         name: "Convergence"
         purpose: AI-natiivi organisaatio saavutettu
         timing: 36-48 kk
+        key-question: Olemmeko AI-natiivi organisaatio?
 
   @section "6.3 Gate 0: Mandaatti"
     @framework gate-0-criteria
-      hallituksen-päätös: Mandaatti hyväksytty, investointikehys, TJ toimeksianto
-      dokumentaatio: Business case, riskianalyysi, seurantamalli
-      resurssit: Alkubudjetti, transformaation vetäjä nimetty
+      hallituksen-päätös:
+        - Mandaatti AI-transformaatiolle hyväksytty
+        - Investointikehys määritelty (3-5 vuotta)
+        - TJ saanut toimeksiannon
+      dokumentaatio:
+        - Business case hyväksytty
+        - Riskianalyysi tehty
+        - Seurantamalli määritelty
+      resurssit:
+        - Alkubudjetti allokoitu
+        - Transformaation vetäjä nimetty
+        - Aikataulu hyväksytty
 
   @section "6.4 Gate 1: Foundation"
     @framework gate-1-criteria
-      stream-1: Hallitus Agent-Assisted 3kk, TJ käynnistynyt, käyttöaste >80%
-      stream-2: Data warehouse, core-järjestelmät integroitu, KPI-framework
-      stream-3: Johto koulutettu, Champions perustettu, viestintä käynnissä
+      stream-1:
+        - Hallitus Agent-Assisted 3kk+ kokemus
+        - TJ käynnistänyt oman käytön
+        - Käyttöaste >80% aktiivisilla
+        - Tyytyväisyys >3.5/5
+      stream-2:
+        - Data warehouse operatiivinen
+        - Core-järjestelmät integroitu
+        - KPI-framework toiminnassa
+        - Perus MLOps käynnistynyt
+      stream-3:
+        - Johto koulutettu (Level 2-3)
+        - Champions-verkosto perustettu
+        - Viestintäkampanja käynnissä
+        - Mittausjärjestelmät toiminnassa
 
   @section "6.5 Gate 2: Automation"
     @framework gate-2-criteria
-      stream-1: Hallitus vakiintunut, TJ 6kk, Johtoryhmä >70%, Keskijohto pilotit
-      stream-2: T1-T3 Automated, T5 MLOps toiminnassa
-      stream-3: Käyttöaste >70%, tyytyväisyys >3.5, Champions kattava
+      stream-1:
+        - Hallitus vakiintunut käyttäjä 6kk+
+        - TJ Agent-Assisted 6kk+
+        - Johtoryhmä >70% Agent-Assisted
+        - Keskijohto pilotit käynnissä
+      stream-2:
+        - T1-T3 Automated taso
+        - T5 MLOps pipeline toiminnassa
+        - Reaaliaikainen data kriittisille KPI:ille
+        - Process mining käytössä
+      stream-3:
+        - Käyttöaste >70% kohdehenkilöstöstä
+        - Tyytyväisyys >3.5/5
+        - Champions-verkosto kattava (1:15-20)
+        - Sisäinen koulutuskyky kehittymässä
 
   @section "6.6 Gate 3: Autonomy"
     @framework gate-3-criteria
-      stream-1: L1-L2 AI-Native, L3 siirtymässä, L4-L5 Agent-Assisted
-      stream-2: T1-T3 Autonomous, T4 Automated, T5 Multi-agent POC
-      governance: Ei bias-ongelmia, explainability 100%, compliance vahvistettu
+      stream-1:
+        - L1-L2 AI-Native toiminnassa
+        - L3 siirtymässä AI-Native
+        - L4-L5 Agent-Assisted kattava
+        - Kypsyyspistemäärä >7/10
+      stream-2:
+        - T1-T3 Autonomous
+        - T4 Automated
+        - T5 Multi-agent POC tuotannossa
+        - Kypsyyspistemäärä >11/15
+      governance:
+        - Ei merkittäviä bias-ongelmia
+        - Explainability 100% kriittisille malleille
+        - Compliance vahvistettu (GDPR AI Act)
+        - Eettinen auditointi tehty
 
   @section "6.7 Gate 4: Convergence"
     @framework gate-4-criteria
-      stream-1: Kaikki L1-L5 AI-Native, kypsyys >9/10, käyttöaste >90%
-      stream-2: Kaikki T1-T5 Autonomous, kypsyys >14/15
-      liiketoiminta: ROI >100%, tehokkuus +30%, päätösnopeus +50%
-      governance: Ei avoimia riskejä, compliance 100%, eettinen audit OK
+      stream-1:
+        - Kaikki L1-L5 AI-Native
+        - Kypsyys >9/10
+        - Käyttöaste >90%
+        - Päätösnopeus +50%
+      stream-2:
+        - Kaikki T1-T5 Autonomous
+        - Kypsyys >14/15
+        - Self-healing toiminnassa
+        - Multi-agent orchestration
+      liiketoiminta:
+        - ROI >100% investoinneille
+        - Operatiivinen tehokkuus +30%
+        - Asiakastyytyväisyys parantunut
+        - Markkinaosuus kasvanut
+      governance:
+        - Ei avoimia kriittisiä riskejä
+        - Compliance 100%
+        - Eettinen auditointi OK
+        - Jatkuva governance toiminnassa
 
   @section "6.8 Gate-Prosessi Käytännössä"
     @framework gate-process
-      4-viikkoa-ennen: Materiaalien kokoaminen, arviointi, puutteiden tunnistus
-      2-viikkoa-ennen: Ensimmäinen raportti, johtoryhmän katselmointi
-      1-viikko-ennen: Raportti valmis, hallitusmateriaalit toimitettu
-      gate-kokous: TJ esittelee, hallitus arvioi, päätös dokumentoidaan
+      4-viikkoa-ennen: Materiaalien kokoaminen kypsyysarviointi puutteiden tunnistus
+      2-viikkoa-ennen: Ensimmäinen raportti johtoryhmän katselmointi täydennykset
+      1-viikko-ennen: Raportti valmis hallitusmateriaalit toimitettu
+      gate-kokous: TJ esittelee hallitus arvioi päätös dokumentoidaan
 
     @list gate-decisions:
-      - Jatketaan: Kaikki kriteerit täyttyvät
-      - Jatketaan korjauksilla: Pääosin täyttyvät, pieniä puutteita
-      - Pysäytetään: Merkittäviä puutteita, root cause analysis
+      - Jatketaan (GO): Kaikki kriteerit täyttyvät edetään seuraavaan vaiheeseen
+      - Jatketaan korjauksilla (GO WITH CONDITIONS): Pääosin täyttyvät pieniä puutteita korjataan
+      - Pysäytetään (NO GO): Merkittäviä puutteita root cause analysis korjaussuunnitelma
+
+    @quote: Gate-päätös ei ole koskaan henkilökohtainen. Se on investointisuoja.
 
 # ============================================================
 # CHAPTER 7: STRATEGIC INTERVENTIONS
@@ -486,65 +660,137 @@
   @diagrams: 5
 
   @section "7.1 Miksi Interventiot?"
-    @narrator: Gates-prosessi on systemaattinen. Mutta liiketoiminta ei aina odota seuraavaa Gate-pistettä.
-    @quote: Interventiot mahdollistavat nopean reagoinnin ilman täyttä Stream-kypsyyttä.
+    @narrator: Gates-prosessi on systemaattinen ja perusteellinen. Mutta liiketoiminta ei aina odota seuraavaa Gate-pistettä.
+    @narrator: Strategic Interventions on mekanismi jolla johtoryhmä voi käynnistää pistemäisiä AI-toimenpiteitä ilman täydellistä Stream-kaskadia.
+    @quote: Interventiot mahdollistavat nopean reagoinnin ilman täyttä Stream-kypsyyttä — mutta ne eivät korvaa systemaattista etenemistä.
+
+    @framework intervention-vs-cascade
+      cascade: L1 → L2 → L3 → L4 → L5 (systemaattinen)
+      intervention: L3 → L5 (suora toimeksianto) + L3 → L1 (informointi)
+
+    @table intervention-when[4]{tilanne,miksi-interventio}:
+      Akuutti ongelma,Myyntitehostus asiakaspoistuma laatuongelma — ei aikaa odottaa
+      Kohdeyksikön valmius,Yksikkö on valmis vaikka välikerrokset eivät
+      Oppiminen,Validoidaan AI-käyttötapaus ennen laajempaa käyttöönottoa
+      Nopea arvonluonti,Demonstroidaan AI:n hyöty konkreettisesti
 
   @section "7.2 Kuka Voi Käynnistää?"
     @framework intervention-authority[3]{käynnistäjä,budjettiraja,tyyppi}:
-      Johtoryhmän jäsen,<€50k,Oman funktion sisäiset
-      Toimitusjohtaja,€50-200k,Funktiorajat ylittävät
-      Hallitus,>€200k,Strategiset/suuret
+      Johtoryhmän jäsen,<€50k,Oman funktion sisäiset interventiot
+      Toimitusjohtaja,€50-200k,Funktiorajat ylittävät interventiot
+      Hallitus,>€200k,Strategiset/suuret interventiot
 
     @framework intervention-reporting
-      johtoryhmän-jäsen: Johtoryhmälle välittömästi, hallitukselle kvartaalissa
+      johtoryhmän-jäsen: Johtoryhmälle välittömästi hallitukselle kvartaaliraportissa
       toimitusjohtaja: Hallitukselle seuraavassa kokouksessa
-      hallitus: Itse päätöksentekijä
+      hallitus: Ei erillistä informointia (itse päätöksentekijä)
+
+    @list immediate-board-notification:
+      - Merkittävät riskit tunnistettu
+      - Julkinen näkyvyys mahdollinen
+      - Regulatoriset vaikutukset
+      - Suuret poikkeamat suunnitelmasta
 
   @section "7.3 Intervention Tyypit"
     @framework intervention-types{tehostaminen,ongelmanratkaisu,kokeilut,kriisinhallinta}
-      tehostaminen: Myyntitehostus, asiakaspalvelu, prosessioptimointi
-      ongelmanratkaisu: Laatuongelma, kustannusylitys, kapasiteettipula
-      kokeilut: Uusi palvelu, markkinatestaus, teknologiakokeilu
-      kriisinhallinta: Markkinamuutos, asiakaspoistuma, kilpailijan vastaus
+      tehostaminen:
+        purpose: Olemassa olevan toiminnan tehostaminen AI:lla
+        examples: Myyntitehostus (liidi-kvalifiointi) Asiakaspalvelu (chatbot) Prosessioptimointi
+      ongelmanratkaisu:
+        purpose: Akuutin ongelman ratkaisu AI:n avulla
+        examples: Laatuongelma (automaattinen QC) Kustannusylitys (analyysi) Kapasiteettipula
+      kokeilut:
+        purpose: Uuden AI-käyttötapauksen validointi
+        examples: Uusi AI-avusteinen palvelu Markkinatestaus AI-analytiikalla Uusi teknologia/alusta
+      kriisinhallinta:
+        purpose: Nopea reagointi kriittiseen tilanteeseen
+        examples: Markkinamuutos (kilpailija-analyysi) Asiakaspoistuma (churn-preventio) Kilpailijan vastaus
 
   @section "7.4 Intervention Prosessi"
-    @framework intervention-process[5]{vaihe,kuka,tuotos}:
-      1-Tunnistus,AI-agentti tai henkilöstö,Tarve tunnistettu
-      2-Päätös,JR/TJ/Hallitus,Mandaatti ja budjetti
-      3-Suunnittelu,Projektitiimi,Intervention suunnitelma
-      4-Toteutus,Projektitiimi + kohdeyksikkö,AI-agentit toiminnassa
-      5-Seuranta,Projektitiimi + JR,Loppuraportti
+    @framework intervention-process[5]{vaihe,kuka,mitä,tuotos}:
+      1-Tunnistus,AI-agentti tai henkilöstö,Poikkeaman tunnistus ja raportointi,Tarve dokumentoitu
+      2-Päätös,JR/TJ/Hallitus (budjettirajan mukaan),Arviointi hyväksyntä resursointi,Mandaatti ja budjetti
+      3-Suunnittelu,Projektitiimi + kohdeyksikkö,AI-agentit mittarit aikataulu,Intervention suunnitelma
+      4-Toteutus,Projektitiimi + kohdeyksikkö,Käyttöönotto koulutus iterointi,AI-agentit toiminnassa
+      5-Seuranta,Projektitiimi + JR jäsen,Mittaus raportointi oppien dokumentointi,Loppuraportti
 
   @section "7.5 Esimerkkiskenaariot"
     @scene myyntitehostus
-      @trigger: Alue X myynti -15% YoY, AI tunnistaa
-      @decision: CMO käynnistää (€40k)
-      @action: AI-agentit liidi-kvalifiointiin
+      @trigger: Alue X myynti -15% YoY AI tunnistaa poikkeaman
+      @decision: CMO käynnistää intervention (€40k budjettirajan alla)
+      @action: AI-agentit liidi-kvalifiointiin ja myyntivalmisteluun
       @result: Myynti +12% kuukaudessa
       @next: Laajennetaan muille alueille
+      @reporting: Johtoryhmälle välittömästi hallitukselle kvartaalissa
 
     @scene asiakaspoistuma
-      @trigger: Churn-riski +40%, AI tunnistaa
-      @decision: COO + CMO (€80k)
-      @action: Retention-agentti riskiasiakkaille
+      @trigger: Churn-riski kasvanut 40% AI tunnistaa
+      @decision: COO + CMO käynnistävät yhdessä (€80k ylittää €50k rajan → TJ hyväksyy)
+      @action: Retention-agentti riskiasiakkaiden tunnistukseen ja kontaktointiin
       @result: Churn -25% 30 päivässä
+      @next: Vakiinnutetaan käytäntö
+
+    @scene laatuongelma
+      @trigger: Laatupoikkeamat nousseet 3x operatiivinen tiimi ilmoittaa
+      @decision: COO käynnistää (€30k)
+      @action: AI-laatuvalvonta prosessiin
+      @result: Laatupoikkeamat -70%
+      @next: Laajennetaan muihin prosesseihin
 
   @section "7.6 Minimivaatimukset"
     @list intervention-requirements:
-      - L1 Agent-Assisted toiminnassa
-      - Kohdeyksikön perusvalmius
-      - Perusdata saatavissa
-      - Kirjallinen mandaatti
+      - L1 Agent-Assisted toiminnassa (hallitus käyttää AI:ta)
+      - Kohdeyksikön perusvalmius AI-työkalujen käyttöönottoon
+      - Perusdata saatavissa (vaikka manuaalisesti)
+      - Kirjallinen mandaatti (päätös dokumentoitu)
       - Budjetti allokoitu
       - Vastuuhenkilö nimetty
 
+    @list not-required:
+      - Täyttä T1-T5 kypsyyttä
+      - L2-L4 kypsyyttä
+      - Reaaliaikaista streaming-dataa
+      - Täyttä automaatiota
+
+    @quote: Interventiot voivat toimia kevyemmällä teknologiaperustalla — mutta tuottavat myös rajallisemman hyödyn.
+
+  @section "7.7 Intervention Opit → Stream-kehitys"
+    @framework intervention-learning
+      stream-1: Validoidut käyttötapaukset nopeuttavat käyttöönottoa
+      stream-2: Konkreettiset integraatiotarpeet ohjaavat investointeja
+      stream-3: Tiimien AI-osaaminen kasvaa käytännön kokemuksen kautta
+
+    @narrator: Interventiot tuottavat konkreettista dataa AI:n hyödyistä: ennen/jälkeen -mittaukset kustannus vs. hyöty skaalautuvuusarviot. Tämä data on arvokasta Gate-arvioinneissa.
+
+  @section "7.8 Intervention Raportointi"
+    @framework intervention-report-structure
+      yhteenveto: Tarkoitus tavoite käynnistäjä budjetti aikataulu
+      toteutus: Kohdeyksikkö laajuus AI-työkalut haasteet ratkaisut
+      tulokset: Mittarit ennen/jälkeen ROI-laskelma laadulliset havainnot
+      opit: Mikä toimi mikä ei suositukset
+      jatkotoimenpiteet: Laajennus vai lopetus integrointi Streameihin seuraavat askeleet
+
+    @table reporting-schedule[4]{raportti,kenelle,milloin}:
+      Viikkoraportti,Projektitiimi,Viikoittain toteutuksen aikana
+      Kuukausiraportti,Johtoryhmä,Osana normaalia raportointia
+      Loppuraportti,Johtoryhmä + Hallitus,Intervention päättyessä
+      Kvartaaliraportti,Hallitus,Osana transformaation seurantaa
+
   @section "7.9 Riskit"
     @table intervention-risks[5]{riski,vaikutus,hallinta}:
-      Liian monta interventiota,Resurssien hajaantuminen,Max 2-3 samanaikaisesti
-      Ei integroidu Streameihin,Teknologiavelka,Systemaattinen oppien siirto
-      Hallituksen sivuuttaminen,Kontrollin menetys,Informointivelvollisuus
-      Mittauksen puute,Ei tiedetä toimiko,Mittarit pakollisena
+      Liian monta interventiota,Resurssien hajaantuminen fokuksen menetys,Max 2-3 samanaikaisesti
+      Ei integroidu Streameihin,Pistemäiset ratkaisut teknologiavelka,Systemaattinen oppien siirto
+      Hallituksen sivuuttaminen,Kontrollin menetys riskialttiita päätöksiä,Informointivelvollisuus budjettirajoitukset
+      Mittauksen puute,Ei tiedetä toimiko,Mittarit pakollisena osana
       Osaamisen puute,Epäonnistunut käyttöönotto,Koulutus osana interventiota
+
+  @section "7.10 Yhteenveto"
+    @quote: Strategic Interventions on mekanismi nopeaan reagointiin — mutta se ei ole oikotie. Se täydentää Gates-prosessia ei korvaa sitä.
+    @list key-principles:
+      - Nopea reagointi: Ei tarvitse odottaa seuraavaa Gate-pistettä
+      - Selkeät valtuudet: Kuka saa käynnistää millä budjetilla
+      - Informointivelvollisuus: Hallitus tietää aina
+      - Opit siirtyvät: Interventiot ruokkivat Stream-kehitystä
 
 # ============================================================
 # CHAPTER 8: KÄYTÄNNÖN ALOITUS
@@ -556,32 +802,38 @@
   @diagrams: 12
 
   @section "8.1 Kaksi Polkua"
+    @narrator: Olet lukenut seitsemän lukua teoriaa. Nyt on aika toimia. Mutta miten toimia? Tässä kohtaa hallitukset jakautuvat.
+
     @framework track-comparison{corporate,fast-track}
       corporate:
         name: "Track A: Korporaatiopolku"
-        approach: Palkataan konsultti, strategiatyöpaja, PowerPointit
+        approach: Palkataan konsultti strategiatyöpaja PowerPointit
         cost: €50-150k
         time-to-results: 2-3 kuukautta
         who-learns: Konsultti
-        result: PowerPoint-esityksiä
+        result: PowerPoint-esityksiä johdolle
+        risk: Johto ei opi itse eikä ymmärrä
       fast-track:
         name: "Track B: Fast Track"
-        approach: Hallitus oppii itse, kokeillaan yhdessä
+        approach: Hallitus oppii itse kokeillaan yhdessä
         cost: €100
         time-to-results: 30 min
         who-learns: Hallitus
-        result: "Hämmästyksen hetki"
+        result: "Hämmästyksen hetki" ja omakohtainen ymmärrys
+        benefit: Sitoutuminen syntyy kokemuksesta
 
     @quote: Kuka oppii? Se ratkaisee kaiken.
-    @quote: Haluammeko ymmärtää AI:n itse — vai haluammeko, että joku muu ymmärtää sen puolestamme?
+    @quote: Haluammeko ymmärtää AI:n itse — vai haluammeko että joku muu ymmärtää sen puolestamme?
 
   @section "8.2 Track A: Korporaatiopolku"
+    @narrator: Track A on tuttu ja turvallinen. Se on myös kallis ja hidas. Mutta se on silti parempi kuin ei mitään.
+
     @framework tracka-phases[5]{vaihe,kesto,tulos}:
-      1-Strategiatyöpaja,1 päivä,Alustava linjaus
-      2-Business Case,2-4 viikkoa,Päätösesitys
-      3-Gate 0 -päätös,1 kokous,Mandaatti
-      4-Stream 1 käynnistys,1-3 kk,Agent-Assisted
-      5-Stream 2 & 3 suunnittelu,1-2 kk,Roadmapit
+      1-Strategiatyöpaja,1 päivä,Alustava linjaus ja yhteinen ymmärrys
+      2-Business Case,2-4 viikkoa,Päätösesitys hallitukselle
+      3-Gate 0 -päätös,1 kokous,Mandaatti ja budjetti
+      4-Stream 1 käynnistys,1-3 kk,Agent-Assisted johdolle
+      5-Stream 2 & 3 suunnittelu,1-2 kk,Roadmapit ja resursointi
 
     @table tracka-investments[4]{stream,vuosi-1,saavutettu-tila}:
       Stream 1 Leadership,€150-300k,Hallitus + TJ + JR Agent-Assisted
@@ -589,63 +841,97 @@
       Stream 3 People,€100-200k,Koulutus Champions toiminnassa
       Yhteensä,€550k-1.1M,Perusta kaikille streameille
 
+    @list tracka-pros:
+      - Systemaattinen ja dokumentoitu
+      - Vähemmän riskiä "meillä ei toimi"
+      - Ulkopuolinen osaaminen käytössä
+    @list tracka-cons:
+      - Kallis ja hidas
+      - Konsultti oppii enemmän kuin johto
+      - Sitoutuminen voi jäädä pinnalliseksi
+
   @section "8.3 Track B: Fast Track"
-    @narrator: Ei PowerPointteja. Ei konsultteja. Ei chat-leikkejä. Oikeat työkalut, oikea demonstraatio.
-    @quote: Jos Suomen presidentti voi haravoida lehtiä Karjalohjalla, hallituksen jäsenet voivat avata AI-työkalun ja kokeilla sitä itse.
+    @narrator: Ei PowerPointteja. Ei konsultteja. Ei chat-leikkejä. Oikeat työkalut oikea demonstraatio.
+    @quote: Jos Suomen presidentti voi haravoida lehtiä Karjalohjalla hallituksen jäsenet voivat avata AI-työkalun ja kokeilla sitä itse.
 
     @framework chat-vs-agent
-      chat: Aloitat tyhjästä, ohjaat jokaista askelta, laatu 50-70%
-      agent: Agentti tuntee kontekstin, tietää mitä tehdä, laatu 95-99%
+      chat:
+        approach: Aloitat tyhjästä ohjaat jokaista askelta
+        quality: 50-70%
+        role: Sinä olet OPETTAJA
+        limitation: Laatu riippuu promptaustaidoista
+      agent:
+        approach: Agentti tuntee kontekstin tietää mitä tehdä
+        quality: 95-99%
+        role: Sinä olet MANAGERI
+        benefit: Vakaa laatu ilman eksperttiä
 
     @framework trackb-phases[4]{vaihe,kesto,kuka,tulos}:
-      1-Valmistelu,1 tunti,Yksi henkilö,Claude Code + BMad asennettu
-      2-Live-demo,30 min,Sama henkilö,"Anteeksi mutta mitä?"
-      3-Luku 9 Asennus,1 tunti,Halukkaat,AI-agentit käytössä
-      4-Päätös jatkosta,1 kokous,Hallitus,Skaalaus organisaatioon
+      1-Valmistelu,1 tunti,Yksi henkilö,Claude Code + BMad asennettu ja testattu
+      2-Live-demo,30 min,Sama henkilö hallitukselle,"Anteeksi mutta mitä?" -hetki
+      3-Luku 9 Asennus,1 tunti,Halukkaat,AI-agentit käytössä kaikilla kiinnostuneilla
+      4-Päätös jatkosta,1 kokous,Hallitus,Skaalaus organisaatioon tai Track A
 
     @scene board-demo
-      @setting: Hallituksen kokous, AI-strategia asialistalla
-      @character Anna controller
-      @action: jakaa näytön, avaa terminaalin
-      @dialogue Anna: "Käytin eilen tunnin opetellakseni uuden työkalun."
+      @setting: Hallituksen kokous AI-strategia asialistalla
+      @character Anna controller/CFO
+      @action: jakaa näytön avaa terminaalin
+      @dialogue Anna: "Käytin eilen tunnin opetellakseni uuden työkalun. Katsotaan mitä saan aikaan."
       @action: runs /biz-strategy-consultant
-      @action: runs *competitive-analysis Kilpailija Oy
+      @action: runs *competitive-analysis "Kilpailija Oy"
       @time: 15 min
-      @output: 3-sivuinen strateginen analyysi
+      @output: 3-sivuinen strateginen analyysi SWOT kilpailuasemointi suositukset
       @dialogue Chairman: "Tämän tekemiseen menisi analyytikolta viikko."
       @dialogue Anna: "Kyllä. Ja tämä maksoi 50 senttiä."
-      @reaction Board: "Anteeksi, mutta mitä?"
+      @reaction Board: "Anteeksi mutta mitä?"
 
-    @quote: Hallitus, joka on nähnyt AI-agentin toiminnassa, ei enää kysy "pitäisikö". He kysyvät "miten nopeasti".
+    @narrator: "Anteeksi mutta mitä?" on se hetki jolloin hallitus ymmärtää. Ei PowerPointista vaan omasta kokemuksesta.
+    @quote: Hallitus joka on nähnyt AI-agentin toiminnassa ei enää kysy "pitäisikö". He kysyvät "miten nopeasti".
 
   @section "8.4 Organisointi ja Vastuut"
     @framework responsibility-matrix[6]{rooli,vastuu,aikasitoumus}:
-      Hallitus,Mandaatti strateginen ohjaus Gate-päätökset,Kvartaalikokoukset
+      Hallitus,Mandaatti strateginen ohjaus Gate-päätökset,Kvartaalikokoukset + Gate-kokoukset
       Toimitusjohtaja,Kokonaisvastuu resursointi sponsorointi,Jatkuva
-      Transformaation vetäjä,Operatiivinen johtaminen koordinointi,50-100%
-      CHRO,Stream 3 osaaminen kulttuuri,20-30%
-      CTO/CDO,Stream 2 teknologia data,20-30%
-      Johtoryhmän jäsen,Funktiokohtainen toteutus,10-20%
+      Transformaation vetäjä,Operatiivinen johtaminen koordinointi raportointi,50-100%
+      CHRO,Stream 3 osaaminen kulttuuri Champions,20-30%
+      CTO/CDO,Stream 2 teknologia data arkkitehtuuri,20-30%
+      Johtoryhmän jäsen,Funktiokohtainen toteutus oman alueen Stream 1,10-20%
+
+  @section "8.5 Ensimmäisen Vuoden Aikataulu"
+    @framework year1-timeline
+      month-0: Gate 0 päätös mandaatti resursointi
+      month-1-3: Stream 1 käynnistys hallitukselle Stream 3 viestintä käynnistyy
+      month-3-6: TJ ja JR mukaan Stream 2 Foundation alkaa Champions pilotti
+      month-6-9: Stream 1 laajenee Gate 1 valmistelu
+      month-9-12: Gate 1 arviointi ja päätös Stream 2 Foundation valmis
 
   @section "8.6 Yleisimmät Sudenkuopat"
     @table pitfalls[8]{sudenkuoppa,seuraus,miten-välttää}:
-      Liian hidas aloitus,Kilpailijat menevät ohi,Aloita hallituksesta heti
-      Teknologia ensin,Johto ei ymmärrä,Tri-Stream rinnakkain
-      Ihmiset unohdetaan,Muutosvastarinta,Investoi 15-20% osaamiseen
-      Ei mandaattia,Projekti jää leijumaan,Hallituksen päätös ensin
-      Liian suuri scope,Resurssien hajaantuminen,Fokus 1. vuoteen
-      Mittaaminen puuttuu,Ei tiedetä onnistuttiinko,Baseline ja mittarit ensin
-      Pilotit eivät skaalaudu,Arvonluonti jää pieneksi,Gate-prosessi pakottaa
-      Liian monta aloitetta,Fokuksen menetys,Max 2-3 interventiota
+      Liian hidas aloitus,Kilpailijat menevät ohi momentti katoaa,Aloita hallituksesta heti (Track B)
+      Teknologia ensin,Johto ei ymmärrä ei sitoudu,Tri-Stream rinnakkain Stream 1 ensin
+      Ihmiset unohdetaan,Muutosvastarinta käyttö ei kasva,Investoi 15-20% osaamiseen (Stream 3)
+      Ei mandaattia,Projekti jää leijumaan resurssit puuttuvat,Hallituksen päätös ensin (Gate 0)
+      Liian suuri scope,Resurssien hajaantuminen mikään ei valmistu,Fokus 1. vuoteen ja Gate 1 kriteereihin
+      Mittaaminen puuttuu,Ei tiedetä onnistuttiinko ROI arvailua,Baseline ja mittarit ensin
+      Pilotit eivät skaalaudu,Arvonluonti jää pieneksi POC-helvetti,Gate-prosessi pakottaa skaalautuvuuden
+      Liian monta aloitetta,Fokuksen menetys laatu kärsii,Max 2-3 interventiota samanaikaisesti
 
   @section "8.7 Menestyksen Avaimet"
     @framework success-keys[6]{avain,käytännössä}:
-      Hallitus omistaa,Gate-päätökset seuranta itse käyttää AI:ta
-      Johto näyttää esimerkkiä,TJ päivittäin JR demonstroi onnistumiset jaetaan
-      Ihmiset mukaan,Avoin viestintä Champions positiiviset kokemukset
-      Nopea arvonluonti,Tulokset 3 kk konkreettiset mittarit
-      Gate-kuri,Ei edetä ilman kriteereitä dokumentointi
-      Oppiminen keskiössä,Interventiot iterointi epäonnistumisen salliminen
+      Hallitus omistaa,Gate-päätökset seuranta itse käyttää AI:ta näyttää esimerkkiä
+      Johto näyttää esimerkkiä,TJ käyttää päivittäin JR demonstroi onnistumiset jaetaan avoimesti
+      Ihmiset mukaan,Avoin viestintä Champions-verkosto positiiviset kokemukset pelkojen käsittely
+      Nopea arvonluonti,Ensimmäiset tulokset 3 kk sisällä konkreettiset mittarit näkyvä hyöty
+      Gate-kuri,Ei edetä ilman kriteerien täyttymistä dokumentointi systemaattinen
+      Oppiminen keskiössä,Interventiot opettavat iterointi sallittua epäonnistuminen hyväksytään
+
+  @section "8.9 Yhteenveto"
+    @list key-messages:
+      - Kaksi polkua: Track A (€550k-1.1M 6-12 kk) tai Track B (€100 1 tunti)
+      - Kuka oppii? Konsultti vs Hallitus — ratkaiseva ero
+      - Perus chat ei riitä — BMad-agentit 95-99% laatua
+      - Yksi henkilö riittää näyttämään "Anteeksi mutta mitä?" -hetken
+      - Luku 9 jatkaa: asennus kaikille €100/kk budjetilla
 
 # ============================================================
 # CHAPTER 9: SADAN EURON ALOITUS
@@ -657,102 +943,124 @@
   @diagrams: 7
 
   @section "9.1 Entä Jos Tämä Ei Maksaisi Mitään?"
-    @narrator: Olet lukenut kahdeksan lukua. Investointiarviot olivat satoja tuhansia.
-    @narrator: Mutta mitä jos kerron, että voit aloittaa tänään? Sadan euron kuukausi-investoinnilla?
-    @quote: Paras tapa vakuuttaa hallitus AI-transformaatiosta on näyttää, mitä sinä itse saavutat AI:n avulla.
+    @narrator: Olet lukenut kahdeksan lukua. Investointiarviot olivat satoja tuhansia euroja.
+    @narrator: Mutta mitä jos kerron että voit aloittaa tänään? Sadan euron kuukausi-investoinnilla?
+    @quote: Paras tapa vakuuttaa hallitus AI-transformaatiosta on näyttää mitä sinä itse saavutat AI:n avulla.
 
   @section "9.2 Miksi Chat Ei Riitä"
     @framework prompt-quality-levels[5]{taso,kuvaus,laatu}:
-      Heikko promptaus,Epämääräinen ohje,30-50%
-      Perus promptaus,Selkeä pyyntö,60-70%
+      Heikko promptaus,Epämääräinen ohje ("kirjoita jotain tästä"),30-50%
+      Perus promptaus,Selkeä pyyntö ("analysoi tämä raportti"),60-70%
       Hyvä promptaus,Konteksti + Ohje + Formaatti,80-90%
       Erinomainen promptaus,Konteksti + Rooli + Esimerkit + Rajoitteet,90-95%
-      Custom Instructions,Projektikohtaiset ohjeet + Tyyliopas,95-99%
+      Custom Instructions,Projektikohtaiset ohjeet + Tyyliopas + Agentit,95-99%
 
-    @quote: Normaalissa Claudessa olet OPETTAJA. Agenteissa olet MANAGERI.
+    @framework chat-vs-agent-role
+      chat: Sinä olet OPETTAJA — ohjaat jokaista askelta mikrotasolla
+      agent: Sinä olet MANAGERI — annat tehtävän agentti toimittaa
+
+    @quote: Normaalissa chatissa olet OPETTAJA. Agenteissa olet MANAGERI.
 
   @section "9.3 BMad-metodi"
     @framework bmad-modules[3]{moduuli,tarkoitus,sisältö}:
-      BMad Method,Ketterä kehitys,12 agenttia 34 työnkulkua
-      BMad Builder,Omien agenttien luonti,Räätälöityjen agenttien rakentaminen
-      Creative Intelligence Suite,Innovaatio ja strategia,Brainstorming design thinking
+      BMad Method,Ketterä ohjelmistokehitys,12 agenttia 34 työnkulkua — ideasta tuotantoon
+      BMad Builder,Omien agenttien luonti,Räätälöityjen agenttien rakentaminen omaan käyttöön
+      Creative Intelligence Suite,Innovaatio ja strategia,Brainstorming design thinking strateginen analyysi
 
     @link: github.com/bmad-code-org/BMAD-METHOD
+    @narrator: BMad on avoin ja ilmainen. Sinä maksat vain AI:n käytöstä.
 
   @section "9.4 Käytännön Aloitus"
     @framework setup-cost[3]{item,cost,result}:
-      Claude Pro,€20/kk,LLM access
-      Claude Code,~€80/kk,Agent capability
-      BMad,€0,Agent templates
+      Claude Pro,€20/kk,LLM access ja extended context
+      Claude Code,~€80/kk (käyttöpohjainen),Agent capability ja työkalu-integraatiot
+      BMad,€0,Agent templates ja työnkulut
 
-    @table time-comparison[4]{tehtävä,ennen,jälkeen}:
-      Strategiaraportti,2 päivää,2 tuntia
-      Kilpailija-analyysi,1 viikko,1 päivä
-      Business case,3 päivää,4 tuntia
-      Hallitusmateriaali,2 päivää,2 tuntia
+    @table time-comparison[4]{tehtävä,ennen,jälkeen,säästö}:
+      Strategiaraportti,2 päivää,2 tuntia,87%
+      Kilpailija-analyysi,1 viikko,1 päivä,80%
+      Business case,3 päivää,4 tuntia,83%
+      Hallitusmateriaali,2 päivää,2 tuntia,87%
 
-    @quote: Jos säästät 10 tuntia viikossa ja tuntipalkkasi on €50, säästö on €2000/kk. ROI on 2000%.
+    @quote: Jos säästät 10 tuntia viikossa ja tuntipalkkasi on €50 säästö on €2000/kk. ROI on 2000%.
 
   @section "9.5 En Ole Tekninen Ihminen"
-    @narrator: Tulevaisuudessa ei ole ei-teknisiä ihmisiä.
+    @narrator: "En ole tekninen ihminen" on yleisin tekosyy olla aloittamatta. Se on myös vanhentunut.
+    @quote: Tulevaisuudessa ei ole "ei-teknisiä ihmisiä".
+
     @framework technical-2025
-      ennen: Tekninen = osaa koodata
+      ennen: Tekninen = osaa kirjoittaa koodia
       nyt: Tekninen = osaa hyödyntää teknologiaa tavoitteiden saavuttamiseen
+      tulevaisuudessa: Kaikki ovat teknisiä — kysymys on osaamisen tasosta
 
     @list required-skills:
-      - Kyky muotoilla tehtävänanto selkeästi
-      - Ymmärrys siitä mitä haluat saavuttaa
-      - Kriittinen ajattelu arvioida tuloksia
-    @narrator: Nämä ovat johtamistaitoja, eivät teknisiä taitoja.
+      - Kyky muotoilla tehtävänanto selkeästi (johtamistaito)
+      - Ymmärrys siitä mitä haluat saavuttaa (strateginen ajattelu)
+      - Kriittinen ajattelu arvioida tuloksia (analyyttisyys)
+    @narrator: Nämä ovat johtamistaitoja eivät teknisiä taitoja. Jos osaat delegoida ihmisille osaat delegoida AI:lle.
 
   @section "9.6 BMad Liiketoiminnassa"
     @scene strateginen-analyysi
       @task: Analysoi kilpailijan vuosikertomus
-      @traditional: 10 tuntia (lue, muistiinpanot, jäsennä, kirjoita)
-      @bmad-way: 30 minuuttia (syötä PDF, käynnistä agentti, saat SWOT ja suositukset)
+      @traditional: 10 tuntia (lue ymmärrä muistiinpanot jäsennä kirjoita)
+      @bmad-way: 30 minuuttia (syötä PDF käynnistä agentti saat SWOT ja suositukset)
+      @quality: Molemmat tuottavat 90%+ laadun mutta aika on eri
 
     @scene hallitusmateriaali
       @task: Valmistele hallituksen strategiakatsaus
       @workflow: Tiedonkeruu → Analyysi → Synteesi → Formaatti
+      @traditional: 3 päivää useita iteraatioita epävarmuus laadusta
+      @bmad-way: 3 tuntia selkeä prosessi vakaa laatu
       @result: 20-sivuinen materiaali 3 tunnissa (vs. 3 päivää)
 
   @section "9.7 Ensimmäinen Tunti"
-    @framework first-hour[4]{minuutit,toimenpide}:
-      1-15,Rekisteröidy claude.ai ja tilaa Pro
-      15-30,Kokeile erinomaista promptausta
-      30-45,Tutustu BMad GitHubissa
-      45-60,Reflektoi - Mitä opin? Miten muuttaa työtäni?
+    @framework first-hour[4]{minuutit,toimenpide,tulos}:
+      0-15,Rekisteröidy claude.ai ja tilaa Pro,Pääsy Claude-malliin
+      15-30,Kokeile erinomaista promptausta (rooli + konteksti + ohje),Ensivaikutelma AI:n kyvyistä
+      30-45,Tutustu BMad GitHubissa lue README,Ymmärrys agenttien potentiaalista
+      45-60,Reflektoi: Mitä opin? Miten tämä muuttaa työtäni?,Henkilökohtainen oivallus
 
   @section "9.8 Seuraava Askel"
-    @framework two-paths
-      polku-1-odota: "Vuoden päästä samat haasteet, kilpailijat edellä"
-      polku-2-aloita: "Vuoden päästä 100x tuottavampi, johdat muutosta"
-    @quote: Valinta on sinun.
+    @framework two-paths-forward
+      polku-1-odota:
+        action: "Mielenkiintoista mutta ei nyt"
+        result-1y: Samat haasteet samat prosessit kilpailijat edellä
+        feeling: Jäätiin junasta
+      polku-2-aloita:
+        action: "Kokeilen tänään"
+        result-1y: 100x tuottavampi uudet mahdollisuudet johdat muutosta
+        feeling: Olin mukana alusta
 
-  @section "Kuinka tämä kirja tuotettiin"
+    @quote: Valinta on sinun. Mutta muista: kilpailijasi tekevät valintansa juuri nyt.
+
+  @section "9.9 Kuinka tämä kirja tuotettiin"
+    @narrator: Tämä kirja on kirjoitettu metodilla jota se opettaa. Se on todiste konseptista.
+
     @framework book-pipeline
-      puhe: ~8 tuntia ajatuksia
-      transcript: Speech-to-Clip → teksti
-      srl: Rakenteellinen muoto
-      agents: BMad-agentit laajentaminen
-      markdown: Luvut ja kaaviot
-      pdf: Valmis kirja
+      puhe: ~8 tuntia ajatuksia ja ideoita (Speech-to-Clip iOS)
+      transcript: Puheen litterointi tekstiksi
+      srl: SRL-muotoon strukturointi (Serial Role Language)
+      agents: BMad-agentit laajentavat jäsentävät validoivat
+      markdown: Luvut kaaviot taulukot (59 Mermaid-diagrammia)
+      pdf: Valmis julkaisukelpoinen kirja
 
-    @table production-comparison[4]{vaihe,perinteinen,tällä-metodilla}:
-      Ideointi ja jäsentely,2-4 viikkoa,1 päivä
-      Kirjoittaminen,2-3 kuukautta,2 päivää
-      Kaaviot,1-2 viikkoa,Automaattinen
-      Editointi,2-4 viikkoa,1 päivä
-      Yhteensä,3-5 kuukautta,4 päivää
+    @table production-comparison[5]{vaihe,perinteinen,tällä-metodilla,säästö}:
+      Ideointi ja jäsentely,2-4 viikkoa,1 päivä,90%+
+      Kirjoittaminen,2-3 kuukautta,2 päivää,95%+
+      Kaaviot ja visualisoinnit,1-2 viikkoa,Automaattinen,99%
+      Editointi ja viimeistely,2-4 viikkoa,1 päivä,90%+
+      Yhteensä,3-5 kuukautta,4 päivää,95%
 
-    @quote: Tämä kirja on todiste siitä, että 100x ei ole liioittelua.
+    @quote: Tämä kirja on todiste siitä että 100x ei ole liioittelua.
 
     @link speech-to-clip: github.com/Latentti/speech-to-clip
 
-  @section "SRL: Kirja ja agentti samasta lähteestä"
+  @section "9.10 SRL: Kirja ja agentti samasta lähteestä"
+    @narrator: SRL (Serial Role Language) on formaatti joka mahdollistaa saman lähdetiedoston käytön sekä dokumentaation että AI-agentin pohjana.
+
     @framework srl-dual-output
-      input: book.srl lähdetiedosto
-      output-1: Markdown → PDF (kirja)
+      input: book.srl lähdetiedosto (yksi totuuden lähde)
+      output-1: Markdown → PDF (kirja ihmisille)
       output-2: AI-agentti (Tri-Stream Transformation Coach)
 
     @table srl-element-mapping[4]{srl-elementti,kirjassa,agentissa}:
@@ -761,19 +1069,53 @@
       @framework gates,Luku 6 Gate-kriteerit,Validoi onko kriteerit täytetty
       @scene board-demo,Luku 8 Anna-esimerkki,Ohjaa demonstraation läpivientiä
 
-    @quote: Kirjoitat kerran, tuotat sekä dokumentaation että toimivan agentin.
+    @quote: Kirjoitat kerran tuotat sekä dokumentaation että toimivan agentin.
 
-  @section "Yhteenveto"
+  @section "9.11 Yhteenveto"
     @list key-messages:
-      - Chat ei riitä — Agentit ovat seuraava taso
-      - Et tarvitse koodaustaitoja — Tarvitset halun oppia
-      - €100/kk riittää alkuun — ROI on välitön
+      - Chat ei riitä — Agentit ovat seuraava taso (95-99% laatu vs 50-70%)
+      - Et tarvitse koodaustaitoja — Tarvitset halun oppia ja delegoida
+      - €100/kk riittää alkuun — ROI on välitön (2000%+ jos säästät 10h/vko)
       - BMad on avoin ja ilmainen — Aloittamisen kynnys on nolla
       - Aloita tänään — Kilpailijasi eivät odota
 
   @section "Kumppani matkalle"
-    @narrator: Latentti on erikoistunut AI-transformaatioihin.
+    @narrator: Latentti on erikoistunut AI-transformaatioihin Suomessa.
     @contact: latentti.fi | ari@latentti.fi
-    @services: Business Context, Enterprise Architecture, Transformaatiopolku
+    @services:
+      - Business Context: Ymmärrämme liiketoimintanne ennen teknologiaa
+      - Enterprise Architecture: TOGAF-pohjainen arkkitehtuuri AI-transformaatiolle
+      - Transformaatiopolku: Track A tai Track B — valintanne mukaan
+
+# ============================================================
+# APPENDIX: KEY FRAMEWORKS SUMMARY
+# ============================================================
+
+@appendix "Keskeiset viitekehykset"
+
+  @section "Tri-Stream yhteenveto"
+    @framework tri-stream-summary
+      stream-1: Leadership — ylhäältä alas — kuukausissa arvoa — L1→L5
+      stream-2: Technology — alhaalta ylös — vuosissa perusta — T1→T5
+      stream-3: People — läpileikkaava — jatkuva — Tietoisuus→Kyvykkyys→Kulttuuri
+
+  @section "Gates yhteenveto"
+    @framework gates-summary
+      gate-0: Mandaatti — päätös käynnistää
+      gate-1: Foundation — 6-12kk — perusinfra toimii
+      gate-2: Automation — 12-24kk — automaatio riittävä
+      gate-3: Autonomy — 24-36kk — autonomia turvallista
+      gate-4: Convergence — 36-48kk — AI-natiivi organisaatio
+
+  @section "Kypsyyspisteytys"
+    @framework maturity-max-scores
+      stream-1: 10 pistettä (5 tasoa × 2 pistettä AI-Native)
+      stream-2: 15 pistettä (5 kerrosta × 3 pistettä Autonomous)
+      combined: 25 pistettä täysi AI-natiivi kypsyys
+
+  @section "Track-vertailu"
+    @framework track-final-comparison
+      track-a: €550k-1.1M | 6-12kk | Konsultti oppii | Systemaattinen
+      track-b: €100/kk | 1 tunti | Hallitus oppii | "Anteeksi mutta mitä?"
 
 @end-book
