@@ -14,6 +14,20 @@ Tämä on avoin kirja hallituksille, johtoryhmille ja transformaation vetäjille
 **Lisenssi:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/deed.fi)
 **Julkaistu:** Joulukuu 2025
 
+> **📢 Päivitys joulukuu 2025**
+>
+> Kirjassa puhutaan siitä, ettei pelkkä chat riitä — tarvitaan agentteja. Tämä pitää paikkansa.
+>
+> **Mutta agentti ei tarkoita vain Claude Codea.** ChatGPT:n Custom GPTs, Googlen Gems ja Microsoftin Copilot Agents ovat myös agentteja. Jos sinulla on jo jokin näistä käytössä, voit testata metodologiaa sillä:
+>
+> | Alusta | Agentit |
+> |--------|---------|
+> | Google Gemini | [gemini-gems](https://github.com/Latentti/gemini-gems) |
+> | ChatGPT Plus | [chatgpt-gpts](https://github.com/Latentti/chatgpt-gpts) |
+> | Microsoft Copilot | [microsoft-custom-pilots](https://github.com/Latentti/microsoft-custom-pilots) |
+>
+> **Avain on agenttipohjainen toiminta** — ei se, millä alustalla olet.
+
 ---
 
 ## Tri-Stream -malli
